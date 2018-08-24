@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--这是react的核心库  -->
+    <script src="./build/react.js"></script>
+    <!--操作dom的核心库  -->
+    <script src="./build/react-dom.js"></script>
+    <!--babel编译的核心库,在浏览器中是无法识别react中的jsx语法糖，采用babel实现jsx语法转化es5语法。  -->
+    <script src="./build/browser.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <!--在script上标记type类型是必不可少的！表示在js代码支持babel编译。  -->
+  <script type="text/babel">
+    //  var arr1 = []
+    class Parent extends React.Component{
+      constructor(props){
+        super(props)
+        this.state={
+          value:'',
+          arr:[]  
+        }
+        this.handleChange=this.handleChange.bind(this)
+        this.handleClick=this.handleClick.bind(this)
+        this.handleChange1=this.handleChange1.bind(this)
+      }
+      handleClick(e){
+        alert('当前单选按钮选择是：'+this.state.value)
+        alert(this.state.arr) 
+        e.preventDefault()
+      }
+      handleChange(e){
+        this.setState({
+          value:e.target.value  
+        })  
+      }
+       handleChange1(e){
+        this.state.arr.push(e.target.value)
+        this.setState({
+          arr:arr
+        })  
+      }
+      render(){
+        return (
+          <form onSubmit={this.handleClick}>
+             <input type="radio" value="1" name="radios" onChange={this.handleChange} />
+             <input type="radio" value="2" name="radios" onChange={this.handleChange} />
+             <input type="radio" value="3" name="radios" onChange={this.handleChange} />
+             <input type="radio"  value="4" name="radios" onChange={this.handleChange} />
+             <input type="checkbox" value="1"  onChange={this.handleChange1} />
+             <input type="checkbox" value="2"  onChange={this.handleChange1} />
+             <input type="checkbox" value="3"  onChange={this.handleChange1} />
+             <input type="checkbox" value="4"  onChange={this.handleChange1} />
+             {/*<select value={this.state.value} onChange={this.handleChange}>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>*/}  
+            <input type="submit" value="Submit" />    
+          </form>
+        )
+      }
+    }
+    ReactDOM.render(//将模板转化为html语法
+     <Parent></Parent>,
+     document.getElementById('app')  
+    )    
+
+  </script>  
+</body>
+</html>
+<!-- render(){
+        return (
+          <form onSubmit={this.handleClick}>
+            <select value={this.state.value} onChange={this.handleChange}>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select> 
+            <input type="submit" value="Submit" />    
+          </form>
+        )
+      }   -->

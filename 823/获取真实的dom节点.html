@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+    <style>
+        .reddd{
+            color:red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"> </div>
+   
+</body>
+</html>
+
+<script type="text/babel">
+ //点击button按钮，使 ref 为 come 的标签处于选中状态（改变其value值）
+    let Hello = React.createClass({
+        handleClick(){
+            this.refs.come.focus()
+            // this.refs.come.value='s1234567'
+        },
+        render(){
+            return  (<div>
+                        <input type="text" ref="come"  />
+                        <button onClick={this.handleClick}>click</button>
+                    </div>)
+        }
+    })
+    
+    let ele = <Hello></Hello>; 
+    ReactDOM.render(
+        ele,
+        document.getElementById('app') 
+    );
+</script> 

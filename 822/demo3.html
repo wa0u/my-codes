@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+    <style>
+        .ls{
+            font-size:20px;
+            color:red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"> </div>
+</body>
+</html>
+
+<!-- <script type="text/babel">
+    ReactDOM.render(
+    <h1 className="ls">Hello World</h1>, 
+    document.getElementById('app') 
+    );
+</script> -->
+
+<script type="text/babel">
+    let hh=React.createElement(
+        'h1',
+        {
+            className:'ls',
+            style:{color:'yellow'}
+        },
+        'Hello World!'
+    );
+
+    ReactDOM.render(
+    hh, 
+    document.getElementById('app') 
+    );
+
+</script>   

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- React  v15.0.1 -->
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+
+    <!-- React v16.4.0 -->
+    <!-- <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script> -->
+    <!-- React.PropTypes 在 React v15.5 版本后已经移到了 prop-types 库。所以需要引入 prop-types.js -->
+    <!-- <script src="https://cdn.bootcss.com/prop-types/15.6.1/prop-types.js"></script> -->
+</head>
+
+<body>
+    <div id="app"> </div>
+</body>
+</html>
+
+<!-- es5的createClass() -->
+<script type="text/babel">
+    //React  v15.0.1
+    //验证：Props 验证使用 propTypes，它可以保证我们的应用组件被正确使用，React.PropTypes 提供很多验证器 (validator) 来验证传入数据是否有效。当向 props 传入无效数据时，JavaScript 控制台会抛出警告。
+    // 以下实例创建一个 HelloMessage 组件，属性 title 是必须的且是字符串，非字符串类型会自动转换为字符串 ：
+    let tit = 'lets go'    //字符串  React.PropTypes.string.isRequired
+    // let tit = 123123     //数字 React.PropTypes.number.isRequired
+    let HelloMessage = React.createClass({
+        propTypes:{
+            title:React.PropTypes.string.isRequired
+        },
+        render(){
+            return <h1>Hello, {this.props.title}</h1>
+        }
+    })
+
+    let ele = <HelloMessage title={tit}></HelloMessage>;
+    let oApp = document.getElementById('app')
+    ReactDOM.render(
+    ele,oApp
+);
+</script>
+
+<!-- es6渲染 class HelloMessage extends React.Component{} -->
+<!-- <script type="text/babel">
+    //React v16.4.0  (React v15.5版本后已经移到了 prop-types 库。所以需要引入 prop-types.js)
+    //将组件和props值分离开来，比上面的方法更直观
+    let tit = 'lets go'  
+    // let tit = 123123    
+
+    //组件
+    class HelloMessage extends React.Component{
+        render(){
+            return <h1> 呦 {this.props.title}</h1>
+        }
+    }
+    //props值类型  （字符串形式）
+    HelloMessage.propTypes = {
+        title:PropTypes.string 
+    }
+
+    let ele = <HelloMessage title={tit} />
+    let oApp = document.getElementById('app');
+    ReactDOM.render(
+        ele,oApp
+    )
+</script> -->

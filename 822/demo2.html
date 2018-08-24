@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+    <style>
+        #app{
+            font-size:16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+</body>
+
+</html>
+<script type="text/babel">
+    // let arr=['abc','def','ghi'];
+    // ReactDOM.render(
+    // <ul>
+    //     {
+    //         arr.map(function(item,index){
+    //             return <li key={index}>{item}</li>
+    //         })
+    //     }
+    // </ul>,
+    // document.getElementById('app') );
+
+    // let con=(<ul>
+    //     <li>llll</li>
+    //     <li>xxxx</li>
+    //     <li>bbbb</li>
+    // </ul>)
+    // let app=document.getElementById('app');
+    // ReactDOM.render(
+    //     con,app
+    // )
+    
+    let arr=[
+        <h2 key='0'>llll</h2>,
+        <h2 key='1'>xxxx</h2>,
+        <h2 key='2'>bbbb</h2>
+    ]
+    let app=document.getElementById('app');
+    ReactDOM.render(
+        <div>{arr}</div>,app
+    )
+  
+
+</script>

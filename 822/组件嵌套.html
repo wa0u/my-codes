@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+    <style>
+            .es5cC{
+                color:red;
+            }
+            .es5fn{
+                color:yellow;
+            }
+            .es6{
+                color:aquamarine;
+            }
+        </style>
+</head>
+
+<body>
+    <div id="app"> </div>
+</body>
+</html>
+
+<script type="text/babel">
+        //创建组件的三种方式：
+        // 注意：创建组件首字母一定要大写
+        // 1.es5的createClass()
+        let Hello1 = React.createClass({
+            render(){
+                return <h2 className={this.props.es5cCoo}>Hello {this.props.es5cCoo}</h2>
+            }
+        })
+
+        // 2.es5函数直接创建
+        function Hello2(props){
+            return <h2 className={props.es5Fnoo} > 你好 {props.es5Fnoo}</h2>
+        }
+        
+        // 3.es6渲染 class HelloMessage extends React.Component{}
+        class HelloMessage extends React.Component{
+            render(){
+                return (
+                    <div>
+                        <h1 className={this.props.es6}> 呦 {this.props.es6}</h1>
+                        <Hello1 es5cCoo={this.props.es5cC}/>
+                        <Hello2 es5Fnoo={this.props.es5Fn}/>
+                    </div>
+                )
+            }
+        }
+        //<Hello1 />、<Hello2 />、<HelloMessage />是组件，使用时必须定义或引入
+        //<h1 /> <div /> 是DOM标签
+
+    let ele = <HelloMessage es5cC="es5cC" es5Fn="es5fn" es6="es6"> </HelloMessage>
+    let oApp = document.getElementById('app');
+    ReactDOM.render(
+        ele,oApp
+    )
+ 
+</script>
